@@ -1,6 +1,10 @@
 ﻿body {
     background-color: black;
     color: whitesmoke;
+    overflow: hidden;
+    -ms-content-zooming: none;
+    max-width: 800px;
+
 }
 
 #searchString {

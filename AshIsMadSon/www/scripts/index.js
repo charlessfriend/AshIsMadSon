@@ -11,8 +11,6 @@
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
-        $("#resultContainer").hide();
-        $("#noresult").hide();
         $("#btnSearch").click( function() { searchClick(); });
 
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
@@ -25,6 +23,10 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
     };
+
+
+
+})();
 
 
 function searchClick() {
@@ -108,5 +110,13 @@ function onError(contactError) {
     alert('onError!');
 }
 
-
-})();
+$(function() {
+    $("#searchInput").keypress(function (e) {
+        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+            searchClick();
+            return false;
+        } else {
+            return true;
+        }
+    });
+});

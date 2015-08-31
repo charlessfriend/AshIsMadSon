@@ -113,4 +113,8 @@
       <vs:name>AshIsMadSon</vs:name>
     </vs:platformSpecificWidget>
   </vs:platformSpecificValues>
+  <preference name="KeepRunning" value="False" />
+  <preference name="ShowTitle" value="True" />
+  <preference name="InAppBrowserStorageEnabled" value="False" />
+  <preference name="SuppressesIncrementalRendering" value="True" />
 </widget>
