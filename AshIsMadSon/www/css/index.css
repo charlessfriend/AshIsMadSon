@@ -1,0 +1,124 @@
+﻿body {
+    background-color: black;
+    color: whitesmoke;
+}
+
+#searchString {
+    width: 100%;
+}
+
+p {
+    width: 100%;
+    display: block;
+}
+
+.label {
+    font-weight: bold;
+    float: left;
+}
+
+.result {
+    /*width: 95%;*/
+    float: right;
+    /*padding: 2px 5px;*/
+}
+
+.row {
+    /*margin: 20px 0;*/
+    margin-bottom: 10px;
+    width: 100%;
+    /*float: right;*/
+    display: inline-block;
+    /*border: 1px solid black;*/
+}
+
+.clear {
+    float: left;
+}
+
+.blink {
+    -webkit-animation-duration: 1s;
+    -webkit-animation-name: blink;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+    
+    -moz-animation-duration: 1s;
+    -moz-animation-name: blink;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -moz-animation-timing-function: ease-in-out;
+    
+    -ms-animation-duration: 1s;
+    -ms-animation-name: blink;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-direction: alternate;
+    -ms-animation-timing-function: ease-in-out;
+
+    -o-animation-duration: 1s;
+    -o-animation-name: blink;
+    -o-animation-iteration-count: infinite;
+    -o-animation-direction: alternate;
+    -o-animation-timing-function: ease-in-out;
+
+    animation-duration: 1s;
+    animation-name: blink;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes blink {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+div.transbox {
+    margin: 0 5px;
+    z-index: 1;
+    top: 10px;
+    height: 100%;
+    /*width: 100%;*/
+    padding: 10px;
+    background-color: black;
+    border: 1px solid #ffffff;
+    opacity: 0.6;
+    filter:alpha(opacity=60); /* For IE8 and earlier */
+}
+
+#searchInput {
+    width: 100%;
+}
+
+span {
+    width: 100%
+}
+
+#resultContainer {
+    margin-top: 5px;
+}
+
+.button {
+    z-index: 3;
+    margin: 0 40%;
+    bottom: 10px;
+    position: fixed;
+    /*width: 40px;
+    border: 1px white solid;
+    padding: 5px 10px;*/
+}
+
+.background {
+    width: 90%;
+    height: 100%;
+    /*display: ;*/
+    position: fixed;
+    background: url("../images/shh.JPG") no-repeat;
+    background-size: 110%;
+    background-position: 0 0;
+}
+
