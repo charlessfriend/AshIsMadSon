@@ -8,9 +8,13 @@
     <title>AshIsMadSon</title>
 
     <!-- AshIsMadSon references -->
-    <script type="text/javascript" src="../Scripts/jquery-2.1.4.js"></script>
-    <script src="cordova.js"></script>
-    <script src="scripts/platformOverrides.js"></script>
+
+    <!--<script type="text/javascript">
+        (function() {
+            $("#resultContainer").hide();
+            $("#noresult").hide();
+        });
+    </script>-->
     <link href="css/index.css" rel="stylesheet"/>
 </head>
 <body>
@@ -26,7 +30,7 @@
                 <span>
                     <input id="searchInput" type="text" name="searchString" value="" />
                 </span>
-                <div id="resultContainer" style="visibility: hidden">
+                <div id="resultContainer">
                     <div class="row">
                         <div class="label">Subscription:</div>
                         <div class="result">
@@ -34,13 +38,10 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="label">First Name:</div>
+                        <div class="label">Subscriber:</div>
                         <div class="result" id="resultFirstName"></div>
                     </div>
-                    <div class="row">
-                        <div class="label">LastName:</div>
-                        <div class="result" id="resultLastName"></div>
-                    </div>
+                    <div class="clear"></div>
                     <div class="row">
                         <div class="label">Email:</div>
                         <div class="result" id="resultEmail"></div>
@@ -60,7 +61,7 @@
                     </div>
                 </div>
 
-                <div id="noresult" style="visibility: hidden">
+                <div id="noresult">
                     <h3>No results!</h3>
                 </div>
             </div>
@@ -68,7 +69,9 @@
         <button class="button" id="btnSearch" onclick="searchClick">Search</button>
     </div>
 <!-- Cordova reference, this is added to your app when it's built. -->
+    <script src="cordova.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-2.1.4.js"></script>
+    <script src="scripts/platformOverrides.js"></script>
     <script src="scripts/index.js"></script>
     
 </body>
-</html>

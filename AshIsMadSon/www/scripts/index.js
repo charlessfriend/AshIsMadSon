@@ -11,6 +11,8 @@
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
+        $("#resultContainer").hide();
+        $("#noresult").hide();
         $("#btnSearch").click( function() { searchClick(); });
 
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
@@ -49,10 +51,8 @@ function onSuccess(contacts) {
     $("#resultContainer").show();
 
     for (var i = 0; i < contacts.length; i++) {
-        console.log("Display Name = " + contacts[i].displayName);
-        $("#resultFirstName").text(contacts[i].name.givenName);
-        $("#resultLastName").text(contacts[i].name.familyName);
-
+        var name = checkForNull(contacts[i].name.givenName, contacts[i].name.familyName); 
+        $("#resultFirstName").text(name);
         displayPhoneNumber(contacts[i]);
         displayEmail(contacts[i]);
         displayAddress(contacts[i]);
@@ -61,50 +61,42 @@ function onSuccess(contacts) {
 
 function displayPhoneNumber(contact) {
     if (contact.phoneNumbers == null) return;
+    var phoneNumbers = "";
     for (var j = 0; j < contact.phoneNumbers.length; j++) {
-        if (contact.phoneNumbers[j].type == "mobile") {
-            $("#resultPhone").text(contact.phoneNumbers[0].value);
-            return;
-        } else {
-            if (contact.phoneNumbers[j].type == "home" && contact.phoneNumbers[j].value != "") {
-                $("#resultPhone").text(contact.phoneNumbers[0].value);
-            }
-        }
+        phoneNumbers += contact.phoneNumbers[j].value + "\n";
     }
+    $("#resultPhone").text(phoneNumbers);
+
 }
 
 function displayEmail(contact) {
     if (contact.emails == null) return;
+    var email = "";
     for (var j = 0; j < contact.emails.length; j++) {
-        if (contact.emails[j].type == "personal") {
-            $("#resultEmail").text(contact.emails[0].value);
-            return;
-        } else {
-            if (contact.emails[j].type == "work" && contact.emails[j].value != "") {
-                $("#resultEmail").text(contact.emails[0].value);
-            }
-        }
+        email += contact.emails[j].value + "\n";
     }
+    $("#resultEmail").text(checkForNull(email, ""));
+
 }
 
 function displayAddress(contact) {
-    if (contact.addresses == null) return;
-    for (var j = 0; j < contact.addresses.length; j++) {
-        if (contact.addresses[j].type == "home") {
-            $("#resultAddress").text(contact.addresses[0].streetAddress);
-            $("#resultAddress2").text(contact.addresses[0].locality + ", " + contact.addresses[0].region + " " + contact.addresses[0].postalCode);
-            return;
-        } else {
-            if (contact.addresses[j].type == "work" && contact.addresses[j].value != "") {
-                $("#resultAddress").text(contact.addresses[0].value);
-                $("#resultAddress2").text(contact.addresses[0].locality + ", " + contact.addresses[0].region + " " + contact.addresses[0].postalCode);
-            }
-        }
-    }
+    if (contact.addresses == null || contact.addresses.length < 1)
+        $("#resultAddress").text("");
+    else
+        $("#resultAddress").text(
+            checkForNull(contact.addresses[0].streetAddress, "\n") + 
+            checkForNull(contact.addresses[0].locality, ", ") +
+            checkForNull(contact.addresses[0].region, " ") +
+            checkForNull(contact.addresses[0].postalCode));
 }
 
 
-// onError: Failed to get the contacts
+function checkForNull(value, suffix) {
+    if (value == null) return "";
+    if (value.trim() == "") return "";
+    if (suffix == null) suffix = "";
+    return value.trim() + suffix;
+}
 
 function onError(contactError) {
     alert('onError!');

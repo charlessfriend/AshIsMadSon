@@ -19,11 +19,12 @@ p {
 .label {
     font-weight: bold;
     float: left;
+    width: 100%;
 }
 
 .result {
-    /*width: 95%;*/
-    float: right;
+    width: 100%;
+    float: left;
     /*padding: 2px 5px;*/
 }
 
@@ -38,6 +39,7 @@ p {
 
 .clear {
     float: left;
+    width: 100%;
 }
 
 .blink {
