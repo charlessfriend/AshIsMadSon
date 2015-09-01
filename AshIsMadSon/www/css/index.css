@@ -110,7 +110,7 @@ span {
 
 .button {
     z-index: 3;
-    margin: 0 40%;
+    margin: 0 auto;
     bottom: 10px;
     position: fixed;
     /*width: 40px;
@@ -119,6 +119,7 @@ span {
 }
 
 .background {
+    max-width: 800px;
     width: 90%;
     height: 100%;
     /*display: ;*/
@@ -126,5 +127,6 @@ span {
     background: url("../images/shh.JPG") no-repeat;
     background-size: 110%;
     background-position: 0 0;
+    margin: 0 auto;
 }
 
