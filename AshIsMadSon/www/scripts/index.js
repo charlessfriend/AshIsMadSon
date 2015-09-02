@@ -11,9 +11,17 @@
         // Handle the Cordova pause and resume events
         document.addEventListener( 'pause', onPause.bind( this ), false );
         document.addEventListener('resume', onResume.bind(this), false);
+
         $("#resultContainer").hide();
         $("#noresult").hide();
         $("#btnSearch").click( function() { searchClick(); });
+        //admob.initAdmob("ca-app-pub-3023250119854627/4789947796", onSuccess, onError); //admob id format ca-app-pub-xxxxxxxxxxxxxxxxxxx/xxxx
+        //var admobParam = new admob.Params();
+        //admobParam.extra={'keyword':"admob phonegame"};
+        //admobParam.isForChild=true;
+        //admobParam.isTesting = true;
+        
+        //admob.showBanner(admob.BannerSize.BANNER, admob.Position.TOP_APP);//show banner at the top of app
 
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
     };
@@ -26,6 +34,13 @@
         // TODO: This application has been reactivated. Restore application state here.
     };
 
+    function onSuccess(contacts) {
+        console.write("");
+    };
+    function onError(contacts) {
+        console.write("");
+
+    };
 
 
 })();

@@ -117,4 +117,5 @@
   <preference name="ShowTitle" value="False" />
   <preference name="InAppBrowserStorageEnabled" value="True" />
   <preference name="SuppressesIncrementalRendering" value="False" />
+  <vs:plugin name="com.admob.plugin" version="5.0.0" src="C:\Personal\PhoneGap\admob\plugin" />
 </widget>
